@@ -1,0 +1,103 @@
+;krl			LDR  R1,=I2CMDR		
+;			LDR  R0,=0x0f
+;			STR  R0,[R1]
+;			
+;			LDR  R1,=I2CMCS
+;			MOV  R2,#0x01
+;			STR  R2,[R1]
+;			
+;busy1		LDR  R0,[R1]
+;			ANDS R0,#0x01
+;			BNE  busy1
+;			
+;			LDR  R1,=I2CMDR		
+;			LDR  R0,=0xff
+;			STR  R0,[R1]
+;			
+;			LDR  R1,=I2CMCS
+;			MOV  R2,#0x01
+;			STR  R2,[R1]
+;			
+;busy2		LDR  R0,[R1]
+;			ANDS R0,#0x01
+;			BNE  busy2
+			
+;			LDR  R1,=I2CMDR		
+;			LDR  R0,=0x00
+;			STR  R0,[R1]
+;			
+;			LDR  R1,=I2CMCS
+;			MOV  R2,#0x1
+;			STR  R2,[R1]
+;			
+;busy2		LDR  R0,[R1]
+;			ANDS R0,#0x01
+;			BNE  busy2
+;			
+;			BL	DELAY100
+;			LDR  R1,=I2CMDR		
+;			LDR  R0,=0x07
+;			STR  R0,[R1]
+;			
+;			LDR  R1,=I2CMCS
+;			MOV  R2,#0x1
+;			STR  R2,[R1]
+;			
+;busy3		LDR  R0,[R1]
+;			ANDS R0,#0x01
+;			BNE  busy3
+;			
+;			LDR  R1,=I2CMDR		
+;			LDR  R0,=0x0f
+;			STR  R0,[R1]
+;			
+;			LDR  R1,=I2CMCS
+;			MOV  R2,#0x1
+;			STR  R2,[R1]
+;			
+;busy4		LDR  R0,[R1]
+;			ANDS R0,#0x01
+;			BNE  busy4
+			
+			
+;			B krl
+;			
+;			
+;;trafic			
+;;			LDR  R1,=I2CMCS
+;;			MOV  R2,#0x1
+;;			STR  R2,[R1]
+;;			
+;;busy		LDR  R0,[R1]
+;;			ANDS R0,#0x01
+;;			BNE  busy
+;;			
+;;			LDR  R1,=I2CMDR		
+;;			LDRB R0,[R7],#1
+;;			STRB R0,[R1]
+
+;;			LDR  R1,=I2CMCS
+;;			MOV  R2,#0x1
+;;			STR  R2,[R1]
+;;			
+;;busy3		LDR  R0,[R1]
+;;			ANDS R0,#0x01
+;;			BNE  busy3
+
+;;			LDR  R1,=I2CMDR		
+;;			MOV  R0,#1
+;;			STR  R0,[R1]
+
+;;			
+;;			SUB  R3,#1
+;;			CMP  R3,#1
+;;			BNE  trafic
+;;			
+;;			LDR  R1,=I2CMCS
+;;			MOV  R2,#0x5
+;;			STR  R2,[R1]
+;;			
+;;busy2		LDR  R0,[R1]
+;;			ANDS R0,#0x01
+;;			BNE  busy2
+;		
